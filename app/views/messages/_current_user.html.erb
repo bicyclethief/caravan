@@ -1,25 +1,24 @@
 <div class="container-fluid inbox">
   <div class="row">
-    <!-- <div class="col-md-12"><h5>Inbox (<%= @num_messages %>)</h5></div> -->
   </div>
-  <div class="row">
+  <div class="tab-sub-header row">
     <div class="col-md-3"><p>Sender</p></div>
     <div class="col-md-6"><p>Subject</p></div>
     <div class="col-md-3"><p>Received</p></div>
   </div>
 
-  <% render 'messages/notifications', locals: {user: @user, notifications: @notifications} %>
+  <%= render partial: 'messages/notifications', locals: {user: @user, notifications: @notifications} %>
 
 	<% @conversations.each do |conversation| %>
-  <% message = conversation.messages.first %>
-  <div class="row">
-    <div class="col-md-3"><%= link_to message.sender.username, user_path(message.sender.id) %></div>
-    <div class="col-md-6"><%= link_to message.subject, "#", data: { id: message.id } %></div>
-    <div class="col-md-3"><%= format_date(message.created_at) %></div>
-  </div>
-  <div class="row msgbody" id="msgbody<%= message.id %>">
-    <div class="col-md-3">&nbsp;</div>
-    <div class="col-md-9"><%= message.body %></div>
-  </div>
+    <% message = conversation.messages.first %>
+    <div class="row">
+      <div class="col-md-3"><%= link_to message.sender.username, user_path(message.sender.id) %></div>
+      <div class="col-md-6"><%= link_to message.subject, "#", data: { id: message.id } %></div>
+      <div class="col-md-3"><%= format_date(message.created_at) %></div>
+    </div>
+    <div class="row msgbody" id="msgbody<%= message.id %>">
+      <div class="col-md-3">&nbsp;</div>
+      <div class="col-md-9"><%= message.body %></div>
+    </div>
 <% end %>
 </div>

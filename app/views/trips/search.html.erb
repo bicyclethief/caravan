@@ -1,79 +1,144 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      <form class="form-horizontal" action="<%= trips_search_path %>">
-        <fieldset>
-        <legend>Your Parcel</legend>
+    <div class="col-md-3 sticky">
+      <%= form_tag trips_search_path, method: :get, class: "form-horizontal test" %>
+        <legend>Parcel Details</legend>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Origin:</label>
           <div class="col-md-8">
-            <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag 'origin_address[address_string]', nil, class: "form-control input-md", placeholder: @origin_address_string %>
+            <% else %>
+              <%= text_field_tag 'origin_address[address_string]', @origin_address_string, placeholder: "Origin Address", class: "form-control input-md" %>
+            <% end %>
             <%= hidden_field_tag "origin_address[latitude]", @origin_latitude, class: "form-control input-md" %>
             <%= hidden_field_tag "origin_address[longitude]", @origin_longitude, class: "form-control input-md" %>
           </div>
         </div>
-        </fieldset>
+
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Destination:</label>
           <div class="col-md-8">
-            <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Search Address", class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag 'destination_address[address_string]', nil, placeholder: @destination_address_string, class: "form-control input-md" %>
+            <% else %>
+              <%= text_field_tag 'destination_address[address_string]', @destination_address_string, placeholder: "Destination Address", class: "form-control input-md" %>
+            <% end %>
             <%= hidden_field_tag "destination_address[latitude]", @destination_latitude, class: "form-control input-md" %>
             <%= hidden_field_tag "destination_address[longitude]", @destination_longitude, class: "form-control input-md" %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Pick-up by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[pickup_by]", nil, class: "form-control input-md", placeholder: @pickup_by %>
+            <% else %>
+              <%= text_field_tag "parcel[pickup_by]", @pickup_by, class: "form-control input-md", :id => "datetimepicker1", placeholder: "Pickup By Date" %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Deliver by:</label>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[deliver_by]", nil, class: "form-control input-md", placeholder: @deliver_by %>
+            <% else %>
+              <%= text_field_tag "parcel[deliver_by]", @deliver_by, class: "form-control input-md", :id => "datetimepicker2", placeholder: "Deliver By Date" %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Weight:</label>
+          <div><label id="weight">Weight: <span id="grab"></span></label></div>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[weight]", @weight, class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[weight]", nil, class: "form-control input-md", placeholder: @weight %>
+            <% else %>
+              <%= range_field_tag "parcel[weight]", @weight ? @weight : "0", class: "form-control input-md", :placeholder => "Weight (Lbs)", min: 1, max: 300 %>
+            <% end %>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-4 control-label" for="">Volume:</label>
+          <div><label id="volume">Volume: <span id="grab1"></span></label></div>
           <div class="col-md-8">
-            <%= text_field_tag "parcel[volume]", @volume, class: "form-control input-md" %>
+            <% if @parcel_id %>
+              <%= text_field_tag "parcel[volume]", nil, class: "form-control input-md", placeholder: @volume %>
+            <% else %>
+              <%= range_field_tag "parcel[volume]", @volume ? @volume : "0", class: "form-control input-md", :placeholder => "Volume (Sq Ft)", min: 1, max: 300 %>
+            <% end %>
           </div>
         </div>
-        <%= button_to "Find Matching Trips", "", class: "btn btn-primary" %>
-        </fieldset>
-      </form>
-    </div>
-    <div class="col-md-9">
-      <h4>Matching Trips</h4>
-      <% if !@trips.nil? %>
-      <% @trips.each do |trip| %>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><h3><i class="fa fa-truck fa-lg"></i> <%= link_to "Trip ID ##{trip.id}", trip_path(trip) %></h3></h3>
-          </div>
-          <div class="panel-body trip-panel">
-            <p><%= link_to trip.driver.username, profile_path(trip.driver) %></p>
-            <p>origin: <%= trip.origin_address.city_state %></p>
-            <p>leaving at: <%= trip.leaving_at.strftime('%b %d, %Y') %></p>
-            <p>destination: <%= trip.destination_address.city_state %></p>
-            <p>arriving at: <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
-            <p>available volume: <%= trip.available_volume %></p>
-            <p>max weight per parcel: <%= trip.max_weight %></p>
-            <p>rate: <%= number_to_currency(trip.rate) %></p>
-            <p><a href="#" class="btn btn-primary" role="button">Book</a></p>
+        <%= button_to "Find Matching Trips", "", class: "btn btn-primary search peter-river" %>
+      </fieldset>
+    </form>
+  </div>
+  <div class="col-md-9 stick_right" id="Container1">
+      <h5 id ="matches", class ="center"><%= @trips.count %> Matching Trips</h5>
+        <% @trips.each do |trip| %>
+            <div class="col-sm-4 custom-marg mix">
+          <div class="dl">
+            <div class="brand">
+                <h2>
+                    <%= link_to "Trip ID ##{trip.id}", trip_path(trip) %>
+                    <%= link_to trip.driver.username, profile_path(trip.driver) %>
+                </h2>
+            </div>
+            <div class="discount peter-river">
+                <p>Rate: <%= number_to_currency(trip.rate) %> </p>
+                <p>Volume: <%= trip.available_volume %> </p>
+                <p>Max Weight: <%= trip.max_weight %> </p>
+            </div>
+             <div class="descr descr-top center">
+                <p><span class="strong">Leaving:</span> <%= trip.leaving_at.strftime('%b %d, %Y') %>
+                  <br>
+                  <p><span class="strong"> Arriving: </span> <%= trip.arriving_at.strftime('%b %d, %Y') %></p>
+            </div>
+            <div class="descr center">
+                <p> <span class="strong"> From:</span> <%= trip.origin_address.city_state %> <br> <span class="strong">To:</span> <%= trip.destination_address.city_state %></p>
+            </div>
+           
+            <div class="coupon light-grey">
+              <% if @parcel_id %>
+              <p><%= link_to "Book", book_parcel_trip_path(@parcel_id, trip.id), class: "btn btn-primary peter-river" %></p>
+            <% else %>
+              <p><%= link_to "Book", new_parcel_path(trip_id: trip.id), class: "btn btn-primary peter-river" %></p>
+            <% end %>
+            </div>
           </div>
         </div>
-
-      <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
+</div>
+
+<script>
+$(function () {
+
+  function showWeight() {
+    var weightValue = $('#parcel_weight').val();
+    $('#grab').html(weightValue);
+  };
+
+  function showVolume() {
+    var parcelValue = $('#parcel_volume').val();
+    $('#grab1').html(parcelValue);
+  };
+
+  showWeight();
+  showVolume();
+
+  $('#parcel_weight').change(function(){
+    showWeight();
+  });
+
+  $('#parcel_volume').change(function(){
+    showVolume();
+  });
+
+  $('#Container1').mixItUp({
+    animation: {
+    duration: 440,
+    effects: 'fade stagger(70ms) rotateY(-14deg) translateZ(280px)',
+    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+  }
+  });
+});
+</script>
+<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>

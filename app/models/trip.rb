@@ -13,7 +13,7 @@ class Trip < ActiveRecord::Base
   SEARCH_RADIUS_MILES = 15
 
   def self.search(params)
-    trips_found = nil
+    trips_found = []
 
     if params[:origin_address] && !params[:origin_address][:latitude].empty? && !params[:origin_address][:longitude].empty?
       trips_near_origin = trips_near(params[:origin_address][:latitude], params[:origin_address][:longitude], :origin_address_id)
@@ -34,8 +34,8 @@ class Trip < ActiveRecord::Base
     end
 
     if params[:parcel]
-      trips_found = trips_found.where("leaving_at > ?", params[:parcel][:pickup_by]) if !params[:parcel][:pickup_by].empty?
-      trips_found = trips_found.where("arriving_at < ?", params[:parcel][:deliver_by]) if !params[:parcel][:deliver_by].empty?
+      trips_found = trips_found.where("leaving_at > ?", date_from_euro_string(params[:parcel][:pickup_by])) if !params[:parcel][:pickup_by].empty?
+      trips_found = trips_found.where("arriving_at < ?", date_from_euro_string(params[:parcel][:deliver_by])) if !params[:parcel][:deliver_by].empty?
       trips_found = trips_found.where("max_weight > ?", params[:parcel][:weight]) if !params[:parcel][:weight].empty?
       trips_found = trips_found.where("available_volume > ?", params[:parcel][:volume]) if !params[:parcel][:volume].empty?
     end
@@ -75,20 +75,13 @@ class Trip < ActiveRecord::Base
     matching_trips = matching_trips.where('available_volume > ?', parcel.volume) if parcel.volume
   end
 
-  def self.match_reviewer(user_id, current_id)
-    trips = Trip.where(driver_id: user_id)
-    match = []
-    trips.each do |trip|
-      trip.parcels.each do |parcel|
-        if parcel.sender_id == current_id
-          match << trip
-        end
-      end
-    end
-    match
-  end
-
   private
+
+  def self.date_from_euro_string str
+    p "xxxxxxxxxxx"
+    p str
+   return DateTime.strptime(str, "%d/%m/%Y %H:%M:%S") if str
+  end
 
   def self.trips_near(latitude, longitude, source)
     if latitude && longitude

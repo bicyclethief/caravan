@@ -13,9 +13,6 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#current'
   get 'profile/history', to: 'users#history'
 
-  get 'review_trips/:id', to: 'trips#match_reviewer'
-  get 'review_parcels/:id', to: 'parcels#match_reviewer'
-
   get '/inbox', to: 'messages#index'
   post '/compose', to: 'messages#new'
 

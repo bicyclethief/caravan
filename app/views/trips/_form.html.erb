@@ -1,41 +1,24 @@
-<%= render partial: "application/flash_messages", flash: flash %> 
-
-<div class="container">
-  <div class="stepwizard">
-    <div class="stepwizard-row setup-panel">
-      <div class="stepwizard-step">
-        <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-      </div>
-      <div class="stepwizard-step">
-        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-      </div>
-      <div class="stepwizard-step">
-        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-      </div>
+ <div class="row setup-content" id="step-1">
+    <div class="col-xs-12">
+      <div class="col-md-12">
+        <h3> Step 1: Origin <button id="button-1", class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
+        <%= render 'addresses/new_origin' %>
+   </div>
+ </div>
+</div>
+<div class="row setup-content" id="step-2">
+  <div class="col-xs-12">
+     <div class="col-md-12">
+        <h3> Step 2: Destination <button id="button-2", class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
+        <%= render 'addresses/new_destination' %>
     </div>
   </div>
-  <%= form_tag @url, method: @method, id: "creation-form" do %>
-     <div class="row setup-content" id="step-1">
-        <div class="col-xs-12">
-          <div class="col-md-12">
-            <h3> Step 1: Origin <button id="button-1", class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
-            <%= render 'addresses/new_origin' %>
-       </div>
-     </div>
-    </div>
-    <div class="row setup-content" id="step-2">
-      <div class="col-xs-12">
-        <div class="col-md-12">
-          <h3> Step 2: Destination <button id="button-2", class="btn btn-default nextBtn btn-lg" type="button" >Next</button></h3>
-          <%= render 'addresses/new_destination' %>
-      </div>
-    </div>
-  </div>
+</div>
 <div class="row setup-content" id="step-3">
   <div class="col-xs-12">
       <h3> Step 3: Trip Info  <%= submit_tag (@submit_btn), id: "button-3", class: "btn btn-default nextBtn btn-lg" %></h3>
     <div class="col-md-12">
-    <div class="col-md-4">
+     <div class="col-md-4">
       <div class="form-group">
         <div class='input-group date'>
            <%= text_field_tag "trip[leaving_at]", @trip ? @trip.leaving_at : "", placeholder: "Leaving at", :id => 'datetimepicker1' %>
@@ -47,37 +30,23 @@
         </div>
        </div>
        <div class="form-group">
-        <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Free Space (sq ft)" %>
-      </div>
-      <div class="form-group">
-        <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "", placeholder: "Max Weight (lbs)" %>
-      </div>
-      <div class="form-group">
-       <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
+         <%= text_field_tag "trip[available_volume]", @trip ? @trip.available_volume : "", placeholder: "Free Space (sq ft)" %>
+       </div>
+       <div class="form-group">
+          <%= text_field_tag "trip[max_weight]", @trip ? @trip.max_weight : "", placeholder: "Max Weight (lbs)" %>
+       </div>
+       <div class="form-group">
+         <%= text_field_tag "trip[rate]", @trip ? @trip.rate : "", placeholder: "Rate (per sq ft)" %>
+       </div>
+       <div class="form-group">
+          <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
+       </div>
      </div>
-     
-     <div class="form-group">
-      <%= text_field_tag "trip[vehicle]", @trip ? @trip.vehicle : "", placeholder: "Vehicle" %>
-    </div>
-  
-<% end %>
-</div>
-<div class="form-group col-md-8 pull-right">
+     <div class="form-group col-md-8 pull-right">
        <%= text_area_tag "trip[content_restrictions]", @trip ? @trip.content_restrictions : "", size: "50x10", placeholder: "Content Restrictions" %>
-     </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-</div>
-</div>
-</div>
 
-<script type="text/javascript">
-$(function () {
-  $('#datetimepicker1').datetimepicker();
-});
-</script>
-<script type="text/javascript">
-$(function () {
-  $('#datetimepicker2').datetimepicker();
-});
-</script>

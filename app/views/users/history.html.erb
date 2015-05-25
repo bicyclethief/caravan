@@ -1,24 +1,24 @@
-<h4><%= @user.username.capitalize %>'s Caravan History</h4>
-<h5>Your Past Trips</h5>
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-2"></div>
-  <div class="col-md-3">Trip Destination City</div>
-  <div class="col-md-3">Trip Delivery Date</div>
+<div id="history_show">
+  <h4><%= @user.username.capitalize %>'s Caravan History</h4>
+  <h5>Your Past Trips</h5>
+    <div class="row">
+      <div class="col-md-2">Destination</div>
+      <div class="col-md-3">Deliveries</div>
+      <div class="col-md-3">Review</div>
+      <div class="col-md-2">Departing</div>
+      <div class="col-md-2">Arriving</div>
+    </div>
+  <% @trips.each do |trip| %>
+    <%= render partial: '/trips/summary', locals: {trip:trip, history: true} %>
+  <%end %>
+  <h5>Your Past Parcels</h5>
+  <div class="row">
+    <div class="col-md-3">Description</div>
+    <div class="col-md-2">Review</div>
+    <div class="col-md-3">Destination </div>
+    <div class="col-md-3">Delivery</div>
+  </div>
+  <% @parcels.each do |parcel| %>
+      <%= render partial: '/parcels/summary', locals: {parcel:parcel, history: true} %>
+  <% end %>
 </div>
-<% @trips.each do |trip| %>
-  <%= render partial: '/trips/summary', locals: {trip:trip} %>
-<% end %>
-<h5>Your Past Parcels</h5>
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">Parcel Description</div>
-  <div class="col-md-3">Parcel Destination City</div>
-  <div class="col-md-3">Parcel Delivery Date</div>
-</div>
-<% @parcels.each do |parcel| %>
-  <%= render partial: '/parcels/summary', locals: {parcel:parcel} %>
-    <div class="col-md-2">
-          <%= link_to "Review #{parcel.trip.driver.username} as Driver", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs" %>
-      </div>
-<% end %>

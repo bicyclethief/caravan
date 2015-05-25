@@ -19,14 +19,12 @@ $(document).ready(function () {
             $target.find('input:eq(0)').focus();
         }
     });
-    var firstSearch = true;
     allNextBtn.click(function(){
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
             curInputs = curStep.find("input[type='text'],input[type='url']"),
             isValid = true;
-            firstSearch = false;
 
         $(".form-group").removeClass("has-error");
         for(var i=0; i<curInputs.length; i++){
@@ -43,5 +41,6 @@ $(document).ready(function () {
 
     $('div.setup-panel div a.btn-primary').trigger('click');
 
-    var gmapAuto = GmapAutoComplete(firstSearch);
+    var originAddressField = GmapAutoComplete("origin_address");
+    var destinationAddressField = GmapAutoComplete("destination_address");
 });

@@ -5,13 +5,25 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @review_carrier = Trip.find(params[:trip_id]) if params[:trip_id]
     @review_carrier = Parcel.find(params[:parcel_id]) if params[:parcel_id]
+    if request.xhr?
+      render 'new', layout: false
+    else
+      render 'new'
+    end
   end
 
   def create
     review = Review.new(review_params)
+    if params[:parcel_id]
+       parcel = Parcel.find(params[:parcel_id])
+       review.update_attributes(reviewee_id: parcel.sender_id)
+    else
+      trip = Trip.find(params[:trip_id])
+      review.update_attributes(reviewee_id: trip.driver_id)
+    end
     reviewee = User.find(review.reviewee_id)
     if review.save
-      new_rep = reviewee.get_reputation
+      reputation = reviewee.get_reputation
       reviewee.update_attributes(reputation: reputation)
       redirect_to user_path(reviewee.id)
     else

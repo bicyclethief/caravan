@@ -1,7 +1,6 @@
 $color-nav-main: blue;
 $color-font-homepage: white;
-$color-button-main: rgb(39,180,211);
-$image-background-main: url(road1.jpg);
+$color-button-main: rgba(39,180,211, 0.5);
 
 ul.details{
 	list-style: none;
@@ -11,20 +10,11 @@ ul.details{
 	list-style: none;
 }
 
-form input.submit {
-	@extend .btn;
-	@extend .btn-default;
-	@extend button;
-}
-
-.jumbotron{
-	background: none;
-	background-image: $image-background-main;
-	background-repeat: no-repeat;
-	background-size: cover;
-	text-align:center;
-	color: $color-font-homepage;
-}
+// form input.submit {
+// 	@extend .btn;
+// 	@extend .btn-default;
+// 	@extend button;
+// }
 
 .stepwizard-step {
 	display: inline;
@@ -89,12 +79,20 @@ input{
 }
 
 body{
-	background-color: white;
+	background-color: $color-font-homepage;
 	color: black;
 }
 
+nav.navbar{
+  border-radius: 0px;
+}
+
 nav.navbar .top-nav-collapse{
-	background-color: rgba(66,66,66, 0.8)
+	background-color: transparent;
+}
+
+.nav {
+  background-color: transparent;
 }
 
 footer{
@@ -106,28 +104,329 @@ footer{
 }
 
 #scroll-button{
-	color: white;
-	border: 1px solid white;
+	color: $color-font-homepage;
+	border: 1px solid $color-font-homepage;
 	background-color: rbga(0,0,0,0.0);
 }
 
-// .btn {
-// 	border: 1px solid rgb(39,180,211);
-// 	background-color: rgb(39,180,211);
-// }
+.center{
+  text-align: center;
+}
 
-// .btn-default {
-// 	color: rgb(39,180,211);
-// }
-
-::selection{
-	color: rgb(39,180,211);
+.strong{
+  font-weight: bold;
 }
 
 .gmap_search_bar input {
 	width: 500px;
 }
 
+section {
+    padding: 5% 0;
+}
+
+.alizarin {
+    background: #e74c3c;
+}
+
+.amethyst {
+    background: #9b59b6;
+}
+
+.emerald {
+    background: #2ecc71;
+}
+
+.midnight-blue {
+    background: #2c3e50;
+}
+
+.peter-river {
+    background: #3498db;
+}
+
+.light-grey{
+  background: lightgrey;
+}
+
+// match card
+.dl {
+    background: #f0f0f0;
+    padding: 2px 0 20px 0;
+    border-radius: 20px;
+    position: relative;
+}
+
+.dl .brand {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    text-align: center;
+    min-height: 100px;
+    margin-bottom: -60px;
+}
+
+.brand h2 {
+  font-size: 15px;
+}
+
+.row{
+	margin: 5px 0 5px 0;
+}
+
+.tab-sub-header {
+	p{
+	font-size: 1.2em;
+	border-bottom: 1px solid rgba(50,50,50, 0.1)
+	}
+}
+
+.xs-gutter{
+	padding: 0;
+}
+
+.dl .discount p {
+  font-size: 18px;
+  line-height: 40px;
+  margin-bottom: -10px;
+  margin-top: -15px;
+}
+
+.dl .descr {
+  font-size: 8px;
+  margin-bottom: 8px
+}
+
+.dl .descr p {
+  font-size: 15px;
+  margin: 5px;
+}
+
+.dl .discount p {
+  text-align: center;
+}
+
+.dl .discount {
+    min-height: 30px;
+    position: relative;
+    font-size: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-weight: bold;
+
+    padding: 20px 15px 0;
+    color: lightgrey;
+}
+
+.dl .discount:after {
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    position: absolute;
+    bottom: -20px;
+    left: 20%;
+}
+
+.dl .discount.alizarin:after {
+    border-top: 20px solid #e74c3c;
+}
+
+.dl .discount.peter-river:after {
+    border-top: 20px solid #3498db;
+}
+
+.tab-pane{
+	margin-top: 20px;
+}
+
+.dl .discount.emerald:after {
+    border-top: 20px solid #2ecc71;
+}
+
+.dl .discount.amethyst:after {
+    border-top: 20px solid #9b59b6;
+}
+
+.dl .discount .type {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: -30px;
+}
+
+.dl .descr {
+    color: #999;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+.dl .descr-top {
+  margin-top: 20px;
+}
+
+.dl .ends {
+    padding: 0 15px;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.dl .coupon {
+    min-height: 50px;
+    text-align: center;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.dl .coupon a.open-code {
+    color: #16a085;
+}
+
+.dl .coupon .code {
+    letter-spacing: 1px;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #f1c40f;
+    background: #f0f0f0;
+}
+
+.custom-marg {
+  margin-bottom: 15px;
+}
+
+.sticky {
+  // position: fixed;
+  margin-left: -50px;
+  margin-top: 35px;
+}
+
+.stick_right {
+  float: right;
+  margin-top: -30px;
+  border-left: 1px solid rgb(230,230,230);
+}
+
+#matches{
+  font-size: 1.5em;
+  color: rgb(100,100,100);
+}
 
 
+.test input {
+  height: 25px;
+  width: 250px;
+  font-size: 10px;
+}
 
+.test form-group {
+  margin: 5px;
+  height: 60px;
+}
+
+.test control-label {
+  font-size: 13px;
+}
+
+#ex1Slider .slider-selection {
+  background: #BABABA;
+}
+
+#weight {
+  margin: 15px;
+  font-size: 12px;
+}
+
+#volume {
+  margin: 15px;
+  font-size: 12px;
+}
+
+#Container1 .mix{
+  display: none;
+}
+
+.test {
+  background: #F0F0F0;
+  margin: -15px;
+  // margin-right: 5px;
+  padding: 10px;
+  box-shadow: -9px 4px 35px -21px;
+  border-radius: 8px;
+}
+
+.search-inline{
+  .gmap_search_bar{
+    input{
+      border: 0px solid;
+      border-bottom: 1px solid $color-font-homepage;
+      width: 320px;
+      font-size: 1.5em;
+      background-color: transparent;
+      color: $color-font-homepage;
+        text-align: center;
+      }
+      ::-webkit-input-placeholder {
+        color:$color-font-homepage;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      ::-moz-placeholder {
+        color:$color-font-homepage;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      :-ms-input-placeholder { 
+        color:$color-font-homepage;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      input:focus{
+        outline: none;
+      }
+  }
+}
+
+.search-inline.gmap_search_bar input::input[placeholder]{
+  color:$color-font-homepage;
+  text-transform: uppercase;
+}
+
+.search {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+#parcel_weight {
+  margin-bottom: -30px;
+}
+
+.input[type=range] {
+    border-radius: 8px;
+    height: 7px;
+    border: 1px solid #bdc3c7;
+    background-color: #fff;
+}
+
+legend{
+  text-align:center;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #646464;
+}
+
+.btn{
+  border-radius: 3px;
+}
+
+.coupon {
+  height: 60px;
+}
+
+#inverse-scroll-button{
+  color: black;
+  border: 1px solid rgb(39,180,211);
+}

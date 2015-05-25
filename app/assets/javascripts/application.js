@@ -11,9 +11,13 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing.min
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require gmap
+//= require wizard
+//= require greyscale
 //= require_tree .
 
 

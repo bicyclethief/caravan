@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :parcel do
+    id 1
     weight 4
     volume 3
     description "pet cat"

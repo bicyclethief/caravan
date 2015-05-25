@@ -8,6 +8,11 @@ body {
   background: #F1F3FA;
 }
 
+.navbar-custom.top-nav-collapse {
+  background-color: transparent;
+  border-bottom: 1px solid black;
+}
+
 /* Profile container */
 .profile {
   margin: 20px 0;
@@ -65,7 +70,7 @@ body {
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
 }
-    
+
 .profile-usermenu {
   margin-top: 30px;
 }
@@ -111,3 +116,4 @@ body {
   background: #fff;
   min-height: 460px;
 }
+

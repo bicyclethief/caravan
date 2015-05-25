@@ -1,39 +1,22 @@
+<div class="parcel_delivery">
+  <h4>Parcels to Deliver for <%= link_to "Trip##{@trip.id}", trip_path(@trip) %></h4>
 
-<h4>Parcels to Deliver for <%= link_to "Trip##{@trip.id}", trip_path(@trip) %></h4>
-
-<ol class ="deliveries">
-<% @parcels.each do |parcel| %>
-  <li>
-    <%= render partial: "parcels/show", locals: {parcel: parcel} %>
-    <% if parcel.delivered == false %>
-      <%= form_tag parcel_path(parcel), method: :put do %>
-          <%= hidden_field_tag 'origin_address[street_address]', parcel.origin_address ? parcel.origin_address.street_address : "" %>
-          <%= hidden_field_tag 'origin_address[secondary_address]', parcel.origin_address ? parcel.origin_address.secondary_address : "" %>
-          <%= hidden_field_tag 'origin_address[description]', parcel.origin_address ? parcel.origin_address.description : "" %>
-           <%= hidden_field_tag 'origin_address[city]', parcel.origin_address ? parcel.origin_address.city : "" %>
-          <%= hidden_field_tag 'origin_address[state]', parcel.origin_address ? parcel.origin_address.state : "" %>
-          <%= hidden_field_tag 'origin_address[zip_code]', parcel.origin_address ? parcel.origin_address.zip_code : "" %>
-          <%= hidden_field_tag 'origin_address[user_id]', '1' %>
-          <%= hidden_field_tag 'destination_address[user_id]', current_user.id %>
-          <%= hidden_field_tag 'destination_address[street_address]', parcel.destination_address ? parcel.destination_address.street_address : "" %>
-          <%= hidden_field_tag 'destination_address[secondary_address]', parcel.destination_address ? parcel.destination_address.secondary_address : "" %>
-          <%= hidden_field_tag 'destination_address[city]', parcel.destination_address ? parcel.destination_address.city : "" %>
-          <%= hidden_field_tag 'destination_address[state]', parcel.destination_address ? parcel.destination_address.state : "" %>
-          <%= hidden_field_tag 'destination_address[zip_code]', parcel.destination_address ? parcel.destination_address.zip_code : "" %>
-          <%= hidden_field_tag 'parcel[sender_id]', parcel.sender.id %>
-          <%= hidden_field_tag 'parcel[description]', parcel ? parcel.description : "" %>
-          <%= hidden_field_tag 'parcel[delivered]', true %>
-          <%= hidden_field_tag 'parcel[pickup_by]', parcel ? parcel.pickup_by : "" %>
-          <%= hidden_field_tag 'parcel[deliver_by]', parcel ? parcel.deliver_by: "" %>
-          <%= hidden_field_tag 'parcel[volume]', parcel ? parcel.volume : "" %>
-          <%= hidden_field_tag 'parcel[weight]', parcel ? parcel.weight : "" %>
-          <%= hidden_field_tag 'parcel[delivery_notes]', parcel ? parcel.delivery_notes : "" %>
-          <%= submit_tag "Parcel Delivered" ,class: "btn btn-default" %>
-        <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ol>
-
+  <ol class ="deliveries">
+  <% @parcels.each do |parcel| %>
+    <li>
+      <%= render partial: "summary", locals: {parcel: parcel, history: false} %>
+      <% if parcel.delivered == false %>
+        <%= form_tag parcel_path(parcel), method: :put do %>
+            <%= hidden_field_tag 'origin_address[user_id]', parcel.origin_address.user_id %>
+            <%= hidden_field_tag 'destination_address[user_id]', parcel.destination_address.user_id %>
+            <%= hidden_field_tag 'parcel[sender_id', parcel.sender_id %>
+            <%= hidden_field_tag 'parcel[delivered]', true %>
+            <%= submit_tag "Parcel Delivered" ,class: "btn btn-default" %>
+          <% end %>
+      <% end %>
+    </li>
+  <% end %>
+  </ol>
+</div>
 
 

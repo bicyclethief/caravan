@@ -1,1 +1,20 @@
-<%= render "parcels/form" %>
+<h4>Create New Parcel</h4>
+
+<%= render partial: "application/flash_messages", flash: flash %> 
+<%= render "layouts/stepwizard" %>
+<div class="container">
+  <%= form_tag @url, method: :put, multipart: true, id: "creation-form" do %>
+		<%= render "parcels/form" %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
+    $('#datetimepicker2').datetimepicker({
+      format: 'DD/MM/YYYY HH:mm:ss'
+    });
+  });
+</script>

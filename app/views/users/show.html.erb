@@ -1,5 +1,12 @@
-<% if @user == current_user %>
-  <%# render 'current_user', locals: {history: @history} %>
+<% if @user.received_reviews.count == 0 %>
+  <h4><%= @user.username%> has no reviews</h4>
 <% else %>
-  <%= render 'reputation' %>
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="profile-content">
+        <h4>Reputation <%= @user.reputation %> / 5</h4>
+        <h5>Reviews</h5>
+        <%= render partial: '/reviews/show', locals: {reviews: @reviews} %>
+    </div>
+  </div>
 <% end %>

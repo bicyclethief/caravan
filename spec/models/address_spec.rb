@@ -5,17 +5,11 @@ RSpec.describe Address, type: :model do
   let(:address) { FactoryGirl.build :address }
 
   it "is valid with a user_id, city, state, zip code" do
-    address = Address.new(user_id: 1,
-                          city: Faker::Address.city,
-                          state: Faker::Address.state_abbr,
-                          zip_code: Faker::Address.zip_code)
     expect(address).to be_valid
   end
 
   it "is invalid without a user_id" do
-    address = Address.new(city: Faker::Address.city,
-                          state: Faker::Address.state_abbr,
-                          zip_code: Faker::Address.zip_code)
+    address.update_attributes(user_id: nil)
     expect(address).to be_invalid
   end
 

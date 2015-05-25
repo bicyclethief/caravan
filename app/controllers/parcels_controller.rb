@@ -4,18 +4,23 @@ class ParcelsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @parcels = @trip.parcels
+    if request.xhr?
+      render 'index', layout: false
+    else
+      render 'index'
+    end
   end
 
   def new
     @url = parcels_path
-    @method = :post
     @submit_btn = "Create Parcel"
     @address = Address.new
+    @trip_id = params[:trip_id]
   end
 
   def show
     @parcel = Parcel.find(params[:id])
-    redirect_to profile_path if @parcel.sender != current_user
+    bounce_guest(@parcel)
     if request.xhr?
       render 'show', layout: false
     else
@@ -25,8 +30,12 @@ class ParcelsController < ApplicationController
 
   def create
     parcel = Parcel.build(origin_address_params, destination_address_params, parcel_params)
-
     if parcel && parcel.persisted?
+      if !parcel.trip_id.nil?
+        notify_sender(parcel)
+        notify_driver(parcel.trip, parcel)
+      end
+      flash[:notice] = "Parcel Booked for Shipping"
       redirect_to profile_path
     else
       flash[:error] = parcel.errors.full_messages.join(", ")
@@ -39,7 +48,6 @@ class ParcelsController < ApplicationController
     @origin_address = @parcel.origin_address
     @destination_address = @parcel.destination_address
     @url = parcel_path(@parcel)
-    @method = :put
     @submit_btn = "Update Parcel"
   end
 
@@ -49,7 +57,7 @@ class ParcelsController < ApplicationController
     @destination_address = @parcel.destination_address
     if @parcel.update(parcel_params) && @origin_address.update(origin_address_params) && @destination_address.update(destination_address_params)
       @parcel.trip.update_attributes(completed: true) if @parcel.delivered
-      redirect_to user_path(current_user.id)
+      redirect_to profile_path
     else
       render :edit
     end
@@ -58,29 +66,29 @@ class ParcelsController < ApplicationController
   def destroy
     parcel = Parcel.find(params[:id])
     parcel.destroy
-    redirect_to user_path(current_user.id)
-  end
-  def match_reviewer
-    @parcels = Parcel.match_reviewer(params[:id], current_user.id)
-    if @parcels
-      @user =  current_user
-      @reviewer = true
-      render '_current_user'
-    end
+    redirect_to profile_path
   end
 
   private
 
+  def notify_sender(parcel)
+    parcel.sender.notify("Your parcel is booked: Details", "Your parcel ID\##{parcel.id} will be picked up by #{format_date(parcel.pickup_by)} and delivered by #{format_date(parcel.deliver_by)} by driver #{parcel.trip.driver.username}.")
+  end
+
+  def notify_driver(trip, parcel)
+    trip.driver.notify("Your trip has a confirmed parcel: Details", "You have accepted to ship parcel ID\##{parcel.id} for #{parcel.sender.username} by #{format_date(parcel.pickup_by)} and deliver by #{format_date(parcel.deliver_by)}.")
+  end
+
   def origin_address_params
-    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:origin_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string, :latitude).merge(user_id: current_user.id)
   end
 
   def destination_address_params
-    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code).merge(user_id: current_user.id)
+    params.require(:destination_address).permit(:user_id, :description, :street_address, :secondary_address, :city, :state, :zip_code, :address_string, :longitude).merge(user_id: current_user.id)
   end
 
   def parcel_params
-    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered, :avatar).merge(sender_id: current_user.id)
+    params.require(:parcel).permit(:origin_address_id, :destination_address_id, :sender_id, :trip_id, :pickup_by, :deliver_by, :weight, :volume, :delivery_notes, :description, :delivered, :avatar)
   end
 
 end

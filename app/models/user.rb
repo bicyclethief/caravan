@@ -12,12 +12,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true
 
   def get_reputation
-    count = self.received_reviews.count
-    sum = 0
-    self.received_reviews.each do |review|
-      sum += review.rating
-    end
-    sum / count.to_f
+    reviews =  self.received_reviews
+    reviews.map do |review|
+      review.rating
+    end.reduce(:+)/(reviews.count)
   end
 
   # method for mailbox gem

@@ -47,8 +47,4 @@ RSpec.describe Trip, type: :model do
     expect(Trip.build(origin_address_params, destination_address_params, {driver_id: 1})).to be_a Trip
     expect(Trip.build(origin_address_params, destination_address_params, {driver_id: 1})).to be_invalid
     end
-  it "has a class method that matches the sender of a parcel with the driver of the trip carrying that parcel so they can post a review" do
-    trip1.parcels << parcel
-    expect(Trip.match_reviewer(trip1.driver_id,parcel.sender_id)).to eq [trip1]
-  end
 end

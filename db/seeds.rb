@@ -77,45 +77,45 @@ Address.create(description: "Beware of our dog", street_address: "130 W Houston 
 
 Address.create(description: "Beware of our dog", street_address: "24 Bond St", secondary_address: "Apartment 5E", city: "New York", state: "NY", zip_code: 10012, user_id: 20)
 
-Address.create(description: "Enter through garage", street_address: "79 St Marks Pl", secondary_address: "Apartment 501", city: "New York", state: "NY", zip_code: 10003, user_id: 21)
+nyaddress1 = Address.create(description: "Enter through garage", street_address: "79 St Marks Pl", secondary_address: "Apartment 501", city: "New York", state: "NY", zip_code: 10003, user_id: 21)
 
-Address.create(description: "Enter through garage", street_address: "238 W 14th St", secondary_address: "Apartment 1A", city: "New York", state: "NY", zip_code: 10011, user_id: 22)
+nyaddress2 = Address.create(description: "Enter through garage", street_address: "238 W 14th St", secondary_address: "Apartment 1A", city: "New York", state: "NY", zip_code: 10011, user_id: 22)
 
-Address.create(description: "Enter through garage", street_address: "33 E 12th St", secondary_address: "Apartment 17", city: "New York", state: "NY", zip_code: 10003, user_id: 23)
+nyaddress3 = Address.create(description: "Enter through garage", street_address: "33 E 12th St", secondary_address: "Apartment 17", city: "New York", state: "NY", zip_code: 10003, user_id: 23)
 
-Address.create(description: "White Building", street_address: "101 Thompson St", secondary_address: "Apartment 501", city: "New York", state: "NY", zip_code: 10012, user_id: 24)
+nyaddress4 = Address.create(description: "White Building", street_address: "101 Thompson St", secondary_address: "Apartment 501", city: "New York", state: "NY", zip_code: 10012, user_id: 24)
 
-Address.create(description: "Brick Building", street_address: "35 White St", secondary_address: "Apartment 5", city: "New York", state: "NY", zip_code: 10013, user_id: 25)
+nyaddress5 = Address.create(description: "Brick Building", street_address: "35 White St", secondary_address: "Apartment 5", city: "New York", state: "NY", zip_code: 10013, user_id: 25)
 
 #cali addresses
 
-Address.create(description: "Brick Building", street_address: "2001 Lombard St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94123, user_id: 1)
+sf1 = Address.create(description: "Brick Building", street_address: "2001 Lombard St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94123, user_id: 1)
 
 Address.create(description: "Brick Building", street_address: "1920 Pacific Ave", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 2)
 
 Address.create(description: "Brick Building", street_address: "2252 Fillmore St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94115, user_id: 3)
 
-Address.create(description: "White Building", street_address: "1760 Bush St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 4)
+sf2 = Address.create(description: "White Building", street_address: "1760 Bush St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 4)
 
 Address.create(description: "White Building", street_address: "956 Ellis St", secondary_address: "Apartment 15A", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 5)
 
 Address.create(description: "White Building", street_address: "1159 Washington St", secondary_address: "Suite 36", city: "San Francisco", state: "CA", zip_code: 94108, user_id: 6)
 
-Address.create(description: "White Building", street_address: "498 Mason St", secondary_address: "Suite 36", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 7)
+sf10 = Address.create(description: "White Building", street_address: "498 Mason St", secondary_address: "Suite 36", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 7)
 
-Address.create(description: "Use Side Door", street_address: "631 O'Farrell St", secondary_address: "Suite 36", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 8)
+sf3 = Address.create(description: "Use Side Door", street_address: "631 O'Farrell St", secondary_address: "Suite 36", city: "San Francisco", state: "CA", zip_code: 94109, user_id: 8)
 
-Address.create(description: "Use Side Door", street_address: "216 5th St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94103, user_id: 9)
+sf9 = Address.create(description: "Use Side Door", street_address: "216 5th St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94103, user_id: 9)
 
-Address.create(description: "Use Side Door", street_address: "637 Gough St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 10)
+sf8 = Address.create(description: "Use Side Door", street_address: "637 Gough St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 10)
 
-Address.create(description: "Use Side Door", street_address: "23 Pearl St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94103, user_id: 11)
+sf7 = Address.create(description: "Use Side Door", street_address: "23 Pearl St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94103, user_id: 11)
 
-Address.create(description: "Speak to Doorman", street_address: "77 Beale St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94105, user_id: 12)
+sf4 = Address.create(description: "Speak to Doorman", street_address: "77 Beale St", secondary_address: "Apartment 3", city: "San Francisco", state: "CA", zip_code: 94105, user_id: 12)
 
-Address.create(description: "Speak to Doorman", street_address: "35 Stanford St", secondary_address: "Back Door", city: "San Francisco", state: "CA", zip_code: 94107, user_id: 13)
+sf5 = Address.create(description: "Speak to Doorman", street_address: "35 Stanford St", secondary_address: "Back Door", city: "San Francisco", state: "CA", zip_code: 94107, user_id: 13)
 
-Address.create(description: "Speak to Doorman", street_address: "44 McAllister St", secondary_address: "Back Door", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 14)
+sf6 = Address.create(description: "Speak to Doorman", street_address: "44 McAllister St", secondary_address: "Back Door", city: "San Francisco", state: "CA", zip_code: 94102, user_id: 14)
 
 Address.create(description: "Beware of our dog", street_address: "938 Divisadero St", secondary_address: "Back Door", city: "San Francisco", state: "CA", zip_code: 94123, user_id: 15)
 
@@ -132,15 +132,15 @@ Address.create(description: "Be careful on the stairss", street_address: "255 10
 
 #far addresses that won't match in the search
 
-Address.create(description: "Be careful on the stairs", street_address: "20480 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 26)
+da1 = Address.create(description: "Be careful on the stairs", street_address: "20480 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 26)
 
-Address.create(description: "Be careful on the stairs", street_address: "20752 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 27)
+da2 = Address.create(description: "Be careful on the stairs", street_address: "20752 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 27)
 
-Address.create(description: "Be careful on the stairs", street_address: "20724 Spring Run Rd", secondary_address: "Apartment 5", city: "Spring Run", state: "PA", zip_code: 17262, user_id: 28)
+da3 = Address.create(description: "Be careful on the stairs", street_address: "4878 Jendrejas Rd", secondary_address: "Apartment 5", city: "Little Rock", state: "AR", zip_code: 72118, user_id: 29)
 
-Address.create(description: "Be careful on the stairs", street_address: "4878 Jendrejas Rd", secondary_address: "Apartment 5", city: "North Little Rock", state: "AR", zip_code: 72118, user_id: 29)
+da4 = Address.create(description: "Be careful on the stairs", street_address: "715 E. Briarwood Pl.", city: "Milwaukee", state: "WI", zip_code: 53217, user_id: 28)
 
-Address.create(description: "Be careful on the stairs", street_address: "14824 Co Rd 52", secondary_address: "Apartment 5", city: "North Little Rock", state: "AR", zip_code: 72118, user_id: 30)
+da5 = Address.create(description: "Don't slip on the ice", street_address: "2957 N. Talman Ave.", secondary_address: "Apartment 3A", city: "Chicago", state: "IL", zip_code: 60618, user_id: 30)
 
 
 
@@ -158,19 +158,18 @@ parcel5 = Parcel.create(origin_address: Address.find(1), destination_address: Ad
 
 #create trips
 
-trip1 = Trip.create(origin_address: Address.find(2), destination_address: Address.find(30), driver: User.find(2), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 2, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
+trip1 = Trip.create(origin_address: Address.find(2), destination_address: da3, driver: User.find(2), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 2, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
 
-trip2 = Trip.create(origin_address: Address.find(3), destination_address: Address.find(31), driver: User.find(3), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 3, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
+trip2 = Trip.create(origin_address: Address.find(3), destination_address: da2, driver: User.find(3), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 3, max_weight: 10, rate: 10, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul")
 
-trip3 = Trip.create(origin_address: Address.find(4), destination_address: Address.find(32), driver: User.find(4), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 12, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Honda Civic")
+trip3 = Trip.create(origin_address: Address.find(4), destination_address: da4, driver: User.find(4), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 12, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Honda Civic")
 
-trip4 = Trip.create(origin_address: Address.find(5), destination_address: Address.find(33), driver: User.find(5), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 7, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
+trip4 = Trip.create(origin_address: Address.find(5), destination_address: da5, driver: User.find(5), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 5, max_weight: 50, rate: 7, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
 
-trip5 = Trip.create(origin_address: Address.find(6), destination_address: Address.find(34), driver: User.find(6), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 12, max_weight: 50, rate: 35, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
+trip5 = Trip.create(origin_address: Address.find(6), destination_address: da1, driver: User.find(6), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 12, max_weight: 50, rate: 35, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
 
 trip6 = Trip.create(origin_address: Address.find(7), destination_address: Address.find(35), driver: User.find(7), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 15, max_weight: 200, rate: 30, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Toyota Avalon")
 
-trip7 = Trip.create(origin_address: Address.find(8), destination_address: Address.find(36), driver: User.find(8), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 15, max_weight: 200, rate: 21, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Range Rover")
 
 trip8 = Trip.create(origin_address: Address.find(9), destination_address: Address.find(37), driver: User.find(9), leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: 300, max_weight: 200, rate: 23, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "Range Rover")
 
@@ -199,18 +198,17 @@ trip18 = Trip.create(origin_address: Address.find(49), destination_address: Addr
 
 trip19 = Trip.create(origin_address: Address.find(50), destination_address: Address.find(46), driver: User.find(2), leaving_at: Faker::Date.backward(13), arriving_at: Faker::Date.backward(10), available_volume: 10, max_weight: 300, rate: 39, content_restrictions: Faker::Lorem.paragraph(2), vehicle: "BMW 335i", completed: true)
 
-
-
 #add parcels to trips
 #attach reviews to those parcels and trips
 
 trip1.parcels << parcel3
 trip1.reviews.create(reviewer_id: parcel3.sender_id, reviewee_id: trip1.driver_id, rating: 5, content: "Thanks for the shipment. Highly recommended.")
 trip1.driver.update_attributes(reputation: trip1.reviews.first.rating)
-trip1.update_attributes(reviewed: true, completed: true)
+trip1.update_attributes(reviewed: true, completed: false)
 parcel3.reviews.create(reviewer_id: parcel3.trip.driver_id, reviewee_id: parcel3.sender_id, rating: 5, content: "Hassle free! Thanks for shipping with me")
 parcel3.sender.update_attributes(reputation: parcel3.reviews.first.rating)
 parcel3.update_attributes(reviewed: true)
+
 trip2.parcels << parcel1
 trip2.reviews.create(reviewer_id: parcel1.sender_id, reviewee_id: trip2.driver_id, rating: 4, content: "Thanks for the shipment. Would use #{trip2.driver.username} to ship again.")
 trip2.driver.update_attributes(reputation: trip2.reviews.first.rating)
@@ -221,10 +219,11 @@ parcel1.update_attributes(reviewed: true)
 trip3.parcels << parcel2
 trip3.reviews.create(reviewer_id: parcel2.sender_id, reviewee_id: trip3.driver_id, rating: 5, content: "Thanks for the shipment. Would use #{trip3.driver.username} to ship again.")
 trip3.driver.update_attributes(reputation: trip3.reviews.first.rating)
-trip3.update_attributes(reviewed: true, completed: true)
+trip3.update_attributes(reviewed: true, completed: false)
 parcel2.reviews.create(reviewer_id: parcel2.trip.driver_id, reviewee_id: parcel2.sender_id, rating: 4, content: "Highly recommended. Clear communication and hassle free instructions. Glad to help with your move!")
 parcel2.sender.update_attributes(reputation: parcel2.reviews.first.rating)
 parcel2.update_attributes(reviewed: true)
+
 trip10.parcels << parcel5
 trip10.reviews.create(reviewer_id: parcel5.sender_id, reviewee_id: trip10.driver_id, rating: 2, content: "Not recommended. My parcel arrived cracked open and damp!")
 trip10.driver.update_attributes(reputation: trip10.reviews.first.rating)
@@ -240,35 +239,27 @@ trip18.parcels.create(origin_address: trip18.origin_address, destination_address
 trip19.parcels.create(origin_address: trip19.origin_address, destination_address: trip19.destination_address, sender_id: 1, pickup_by: trip19.leaving_at - 1.day, deliver_by: trip19.arriving_at + 1, weight: 100, volume: 40, delivery_notes: "Very heavy", description: "Couch", delivered: true)
 
 
-# for testing trips matching parcel
+#Demo Trips
+dt1 =   Trip.create(origin_address: nyaddress1, destination_address: da1, driver_id: 1, leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: 7.50 , content_restrictions: 'No flammables', vehicle: "U-Haul Lambos")
 
-# pdx1 = Address.create(description: Faker::Commerce.color, street_address: Faker::Address.street_address, secondary_address: Faker::Address.secondary_address, city: 'Portland', state: 'OR', zip_code: Faker::Address.zip_code, user_id: User.pluck(:id).sample)
+dt2 = Trip.create(origin_address: nyaddress2, destination_address: da2, driver_id: 2, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "U-Haul")
 
-# pdx2 = seeAddress.create(description: Faker::Commerce.color, street_address: Faker::Address.street_address, secondary_address: Faker::Address.secondary_address, city: 'Portland', state: 'OR', zip_code: Faker::Address.zip_code, user_id: User.pluck(:id).sample)
+dt3 = Trip.create(origin_address: nyaddress3, destination_address: da3, driver_id: 5, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "10-ft Uhaul")
 
-# parcel = Parcel.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: pdx1, sender: User.find(User.pluck(:id).sample), pickup_by: '8/5/2015', deliver_by: '15/5/2015', weight: 1, volume: 10, delivery_notes: Faker::Lorem.paragraph(2), description: 'parcel 1 for testing matching trips')
+dt4 = Trip.create(origin_address: nyaddress4, destination_address: da4, driver_id: 8, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No flammables", vehicle: "Escalade")
 
-# parcel2 = Parcel.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: pdx1, sender: User.find(User.pluck(:id).sample), pickup_by: '8/5/2015', deliver_by: '15/5/2015', weight: 1, volume: 10, delivery_notes: Faker::Lorem.paragraph(2), description: 'parcel 2 for testing matching trips')
+dt5 = Trip.create(origin_address: nyaddress5, destination_address: da5, driver_id: 5, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No food", vehicle: "F-150")
 
-# 5.times do
-#   Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: pdx2, driver: User.find(User.pluck(:id).sample), leaving_at: '9/5/2015', arriving_at: '13/5/2015', available_volume: 50, max_weight: 5, rate: Faker::Commerce.price , content_restrictions: 'matching trip', vehicle: "U-Haul Lambos")
-# end
+dt6 = Trip.create(origin_address: nyaddress1, destination_address: sf1, driver_id: 6, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: 0.50 , content_restrictions: "No food", vehicle: "F-150")
 
-#Test Reviewing a Trip/Driver
-# trip_to_review = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), driver_id: 2, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
-# trip_to_review.parcels.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), sender_id: 1, pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(10), weight: rand(1..200), volume: rand(1..400), delivery_notes: Faker::Lorem.paragraph(2), description: Faker::Lorem.paragraph(2))
+dt7 = Trip.create(origin_address: nyaddress2, destination_address: sf2, driver_id: 2, leaving_at: "2015-05-20 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: rand(1..200), rate:9.20 , content_restrictions: "Not responsible for lost or stolen items", vehicle: "Truck")
 
-#Test Reviewing a Parcel/Sender
-# parcel_to_review = Parcel.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), sender_id: 2, pickup_by: Faker::Date.forward(4), deliver_by: Faker::Date.forward(10), weight: rand(1..200), volume: rand(1..400), delivery_notes: Faker::Lorem.paragraph(2), description: Faker::Lorem.paragraph(2))
+dt9 = Trip.create(origin_address: nyaddress4, destination_address: sf4, driver_id: 8, leaving_at: "2015-05-22 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: rand(10..400), max_weight: 45, rate: 0.50 , content_restrictions: "Passengers Welcome", vehicle: "Sprinter")
 
-# trip = Trip.create(origin_address: Address.find(Address.pluck(:id).sample), destination_address: Address.find(Address.pluck(:id).sample), driver_id: 1, leaving_at: Faker::Date.forward(3), arriving_at: Faker::Date.forward(10), available_volume: rand(10..400), max_weight: rand(1..200), rate: Faker::Commerce.price , content_restrictions: Faker::Lorem.paragraph(2), vehicle: "U-Haul Lambos")
+dt10 = Trip.create(origin_address: nyaddress5, destination_address: sf5, driver_id: 5, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at: "2015-05-24 18:36:59 -0400", available_volume: 45, max_weight: 120, rate: 1.20, content_restrictions: "Passengers Welcome", vehicle: "Minivan")
 
-# trip.parcels << parcel_to_review
+dt11 = Trip.create(origin_address: nyaddress1, destination_address: sf6, driver_id: 6, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-24 18:36:59 -0400", available_volume: 40, max_weight: 140, rate: 2.00 , content_restrictions: "Pets allowed", vehicle: "Minivan")
 
-# Create some messages between Users
-User.all.each do |receiver|
-  5.times do
-    sender = User.find(User.pluck(:id).sample)
-    sender.send_message(receiver, Faker::Hacker.say_something_smart, Faker::Hacker.noun)
-  end
-end
+dt12 = Trip.create(origin_address: nyaddress2, destination_address: sf7, driver_id: 2, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 25, max_weight: 80, rate: 0.99 , content_restrictions: "Pets allowed", vehicle: "U-Haul")
+
+dt13 = Trip.create(origin_address: nyaddress3, destination_address: sf8, driver_id: 3, leaving_at: "2015-05-19 18:36:59 -0400", arriving_at:  "2015-05-23 18:36:59 -0400", available_volume: 30, max_weight: 110, rate: 1.00 , content_restrictions: "Cardboard parcels only", vehicle: "U-Haul")

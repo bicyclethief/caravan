@@ -1,20 +1,43 @@
-<div class="parcel_show">
+<div class="parcel_show @parcel details">
   <h5>Parcel #<%= @parcel.id %>: <%= @parcel.description %></h5>
-  <%= image_tag @parcel.avatar.url(:medium) %>
-  <ul class="@parcel details">
-    <li>Pickup From: <%= @parcel.origin_address.street_address %></li>
-    <li> <%= @parcel.origin_address.city %></li>
-    <li>  <%= @parcel.origin_address.state %></li>
-    <li></li>
-    <li>Drop Off: <%= @parcel.destination_address.street_address %></li>
-    <li> <%= @parcel.destination_address.city %></li>
-    <li> <%= @parcel.destination_address.state %></li>
-
-    <li>Pickup By: <%= @parcel.pickup_by %></li>
-    <li>Deliver By: <%= @parcel.deliver_by %></li>
-    <li>Volume: <%= @parcel.volume %></li>
-    <li>Weight: <%= @parcel.weight %></li>
-    <li>Delivery Notes: <%= @parcel.delivery_notes %></li>
-    <li><%= render partial: 'delivery_status', locals: {parcel: @parcel} %></li>
-  </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Pick Up</h3>
+    </div>
+    <div class="panel-body">
+     <div class="col-md-5">
+      <%= @parcel.origin_address.street_address %><br>
+      <%= @parcel.origin_address.city %>, <%= @parcel.origin_address.state %>
+    </div>
+    <div class="col-md-5">
+      <%= format_date(@parcel.pickup_by) %>
+    </div>
+  </div>
+    <div class="panel-heading">
+      <h3 class="panel-title">Drop Off</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-5">
+       <%= @parcel.destination_address.street_address %><br>
+       <%= @parcel.destination_address.city %>, <%= @parcel.destination_address.state %>
+      </div>
+      <div class="col-md-5">
+        <%= format_date(@parcel.deliver_by) %>
+      </div>
+    </div>
+    <div class="panel-heading">
+      <h3 class="panel-title">Stats</h3>
+    </div>
+    <div class="panel-body">
+      <%= @parcel.volume %> cubic ft. <br>
+      <%= @parcel.weight %> lbs
+    </div>
+    <div class="panel-heading">
+      <h3 class="panel-title">Delivery Notes</h3>
+    </div>
+    <div class="panel-body">
+      <%= @parcel.delivery_notes %><br><br>
+      <%= render partial: 'delivery_status', locals: {parcel: @parcel} %>
+    </div>
+  </div>
 </div>

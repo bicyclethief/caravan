@@ -1,6 +1,0 @@
-Trip# <%=  trip.id %><br>
-<%=  trip.driver.username %><br>
-Trip leave: <%=  trip.leaving_at %><br>
-Trip arriving: <%=  trip.arriving_at %><br>
-Price per cubic foot <% trip.rate %><br>
-<%= button_to 'Book', book_parcel_trip_path(@parcel, trip), method: :get %>

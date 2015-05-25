@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   def index
     @notifications = current_user.mailbox.notifications
     @conversations = current_user.mailbox.inbox
-    @num_messages = @conversations.count
+    @num_messages = @conversations.count + @notifications.count
   end
 
   def new

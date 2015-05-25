@@ -1,26 +1,35 @@
 <div class="row">
-  <% if @reviewer || trip.completed %>
-    <div class="col-md-4">
-      <%= link_to "Review", new_trip_review_path(trip) %>
-    </div class="col-md-4">
-  <% else%>
-    <div class="col-md-1">
-      <%= link_to "Details", trip_path(trip), class: "btn btn-primary nextBtn btn-sm", method: :get %>
-    </div>
-    <div class="col-md-1">
-      <%= link_to "Edit", edit_trip_path(trip), class: "btn btn-primary nextBtn btn-sm" %>
-    </div>
-    <div class="col-md-1">
-      <%= link_to "Delete", trip_path(trip), class: "btn btn-primary nextBtn btn-sm", method: :delete %>
-    </div>
-    <div class="col-md-1">
-      <% if parcels %>
-        <%= render partial: '/trips/link_trip_parcels', locals: {parcels: parcels} %>
-      <% end %>
-    </div>
-    <div class="col-md-2"><%= link_to (trip.parcels.where(delivered: false).count), trip_parcels_path(trip) %></div>
-  <% end %>
-  <div class="col-md-3"><%= trip.destination_address.city %></div>
-  <div class="col-md-3"><%= format_date(trip.arriving_at) %></div>
-</div>
 
+  <div class="col-md-2">
+    <%= link_to trip.destination_address.city, trip_path(trip), class: "btn btn-primary nextBtn btn-xs trip_details" %>
+  </div>
+
+  <div class="col-md-3">
+    <% if trip.parcels.count > 0 %>
+      <%= link_to trip.parcels.first.description, trip_parcels_path(trip), class: "delivery_link" %>
+      <% else %>
+        0
+    <% end %>
+  </div>
+
+    <% if !history %>
+      <div class="col-md-1">
+        <%= button_to "Edit", edit_trip_path(trip), class: "btn btn-info nextBtn btn-xs" %>
+      </div>
+      <div class="col-md-1">
+        <%= button_to "Delete", trip_path(trip), class: "btn btn-info nextBtn btn-xs", method: :delete %>
+      </div>
+    <% else %>
+     <div class="col-md-2">
+        <% trip.parcels.each do |parcel| %>
+         <%= link_to "Review #{trip.parcels.first.sender.username}", new_parcel_review_path(parcel.id), class: "btn btn-primary nextBtn btn-xs review" %><br>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-md-1"></div>
+
+  <div class="col-md-2"><%= format_date(trip.leaving_at) %>
+  </div>
+  <div class="col-md-2"><%= format_date(trip.arriving_at) %>
+  </div>
+</div>

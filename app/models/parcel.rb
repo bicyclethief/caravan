@@ -26,19 +26,11 @@ class Parcel < ActiveRecord::Base
       return destination_address
     end
 
-    p "*********************"
-    p parcel_params
-     p "*********************"
     parcel = Parcel.new(parcel_params)
     parcel.origin_address = origin_address
     parcel.destination_address = destination_address
-     p "*********************"
-    p parcel
-     p "*********************"
+    parcel.sender = origin_address.user
     if parcel.save
-       p "*********************"
-      p parcel
-       p "*********************"
       return parcel
     else
       origin_address.destroy
@@ -47,16 +39,4 @@ class Parcel < ActiveRecord::Base
       return parcel
     end
   end
-
-    def self.match_reviewer(user_id, current_id)
-    parcels = Parcel.where(sender_id: user_id)
-    match = []
-    parcels.each do |parcel|
-      if parcel.trip.driver_id == current_id
-          match << parcel
-      end
-    end
-    match
-  end
-
 end

@@ -1,29 +1,35 @@
-<%= render partial: 'application/flash_messages' %>
-
-<!--   <div class="col-md-2">Details</div>
-  <div class="col-md-4">Description</div>
-  <div class="col-md-3">Destination </div>
-  <div class="col-md-3">Delivery</div>
- -->
-
 <div class="row">
-  <div class="col-md-1"><%= button_to 'details', parcel_path(parcel), method: :get, class: "btn btn-primary nextBtn btn-xs details" %></div>
-  <% if parcel.trip %>
-  <div class="col-md-1"><%= button_to 'match', parcel_trips_path(parcel), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
-
-  <div class="col-md-4"><%= parcel.description %></div>
-  <div class="col-md-3"><%= parcel.destination_address.city %></div>
-  <div class="col-md-3">
-    <%= format_date(parcel.deliver_by) %> 
-  </div>
-</div>
-  <div class="row">
-    <div class="col-md-2">Pending
-      <%= button_to "Message Driver", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-primary nextBtn btn-xs" %>
+    <div class="col-md-3"><%= link_to parcel.description, parcel_path(parcel), method: :get, class: "parcel_details" %>
     </div>
-    <% end %>
+  <% if !history %>
+    <div class="col-md-1 xs-gutter"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %>
+    </div>
+    <div class="col-md-1 xs-gutter"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'delete' %>
+    </div>
+  <% else %>
+    <div class="col-md-2">
+        <%= link_to "Review #{parcel.trip.driver.username}", new_trip_review_path(parcel.trip.id),class: "btn btn-primary nextBtn btn-xs review" %>
+      </div>
+<% end %>
+
+<div class="col-md-3">
+  <%= parcel.destination_address.city %>
 </div>
-<div class="row">
-  <div class="col-md-1"><%= button_to 'Edit', edit_parcel_path(parcel.id), class: "btn btn-alert nextBtn btn-xs", method: 'get' %></div>
-  <div class="col-md-1"> <%= button_to 'Delete', parcel_path(parcel.id), class: "btn btn-danger nextBtn btn-xs", method: 'delete' %></div>
+
+<div class="col-md-2">
+  <%= format_date(parcel.deliver_by) %>
 </div>
+<% if !history %>
+   <% if !parcel.trip %>
+    <div class="col-md-1"><%= link_to 'match', trips_search_path(parcel_id: parcel.id), method: :get,class: "btn btn-info nextBtn btn-xs" %></div>
+    <% else %>
+     <div class="col-md-1">
+      <%= button_to "Message", compose_path, params: { sender: current_user.id, receiver: parcel.trip.driver.id, subject: "Parcel ##{parcel.id} on Trip ##{parcel.trip.id}" }, class: "btn btn-info nextBtn btn-xs" %>
+      </div>
+  <% end %>
+
+<% end %>
+</div>
+<div class="row"></div>
+
+

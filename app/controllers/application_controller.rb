@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :return_point
   helper_method :format_date
   helper_method :bootstrap_class_for
+  helper_method :bounce_guest
 
   def index
     render layout: 'landing-page'
@@ -37,7 +38,7 @@ class ApplicationController < ActionController::Base
     session[:return_point] || root_path
   end
 
-  def format_date(input_date)    
+  def format_date(input_date)
     output_date = "#{input_date.strftime('%b %d, %Y')}"
   end
 
@@ -54,6 +55,10 @@ class ApplicationController < ActionController::Base
       else
         flash_type.to_s
     end
+  end
+
+  def bounce_guest(parcel)
+    redirect_to profile_path if parcel.sender != current_user
   end
 
 end
