@@ -60,6 +60,9 @@ class Trip < ActiveRecord::Base
       return destination_address
     end
 
+    trip_params[:leaving_at] = Date.strptime(trip_params[:leaving_at], '%m/%d/%Y').strftime('%d/%m/%Y')
+    trip_params[:arriving_at] = Date.strptime(trip_params[:arriving_at], '%m/%d/%Y').strftime('%d/%m/%Y')
+
     trip = Trip.new(trip_params)
     trip.origin_address = origin_address
     trip.destination_address = destination_address
