@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # has_many :driver_reviews, class_name: "Review", through: :trips, source: :driver
   # has_many :sender_reviews, class_name: "Review", through: :parcels, source: :sender
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   def get_reputation
     reviews =  self.received_reviews
